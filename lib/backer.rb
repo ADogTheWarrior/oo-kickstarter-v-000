@@ -6,8 +6,9 @@ class Backer
   end
 
   def back_project(project)
-    if @backed_projects
-    @backed_projects << project
-    project.add_backer(self)
+    if !(@backed_projects.find {|copy| copy == project})
+      @backed_projects << project
+      project.add_backer(self)
+    end
   end
 end
